@@ -11,6 +11,7 @@ for (let i = 0; i < courses.length; i++) {
   let courseName = courses[i].name // class name
   let courseId = courses[i].id; // class id
   console.log("Class Name: " + courseName, "Class ID: " + courseId)
+  insertStudents(courseName, courseId);
 }
 }
 
@@ -29,5 +30,33 @@ function retrieve_Emails_Names(){
     studentNames.push(students[i].profile.name.fullName) //gets full name
     studentEmails.push(students[i].profile.emailAddress) //gets Email
   }
-  console.log(major);
+  return major;
 }
+
+function insertStudents(courseName, courseId) {
+var insertedSheetName = courseName; 
+var ss = SpreadsheetApp.getActiveSpreadsheet();
+//var newSheet = ss.getSheetName(insertedSheetName);
+//ensures that the courses isnt imported twice
+//if (newSheet != null){
+  //SpreadsheetApp.getUi().alert('This classroom is already imported');
+  //return
+  //}
+
+newSheet = ss.insertSheet();
+newSheet.setName(insertedSheetName);
+newSheet.appendRow(['Student Name', 'Email Address', 'Course ID', courseId]) //adds headers to the new spreadsheet
+var studentNames = retrieve_Emails_Names(courseId)[0] //gets names
+var studentEmails = retrieve_Emails_Names(courseId)[1] 
+for (var i = 0; i < studentNames.length; i++) {
+  newSheet.appendRow([studentNames[i], studentEmails[i]]) //adds names to the sheet
+}
+//sorts the data 
+newSheet.autoResizeColumns(1, 4);
+let range = newSheet.getRange(2, 1, newSheet.getLastRow(), 2);
+range.sort(1)
+
+}
+
+
+
