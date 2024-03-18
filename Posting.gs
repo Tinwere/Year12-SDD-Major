@@ -3,10 +3,9 @@ function postAnnouncement() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const sheet = ss.getSheetByName('assignment')
   const courseId = sheet.getRange('B1').getValue();
-  var assignment ={
-    description: sheet.getRange('B3').getValue().toString(),
-    state: 'PUBLISHED',
-    workType: "ANNOUNCEMENT"
+  var announcement ={
+    text: "Happy Birthday"+"\n" + "XXX" //sheet.getRange('B3').getValue().toString(),
   };
-  const announcement = null
+  Classroom.Courses.Announcements.create(announcement, courseId)
+  Logger.log(announcement);
 }
