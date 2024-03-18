@@ -7,7 +7,9 @@ function postAnnouncement() {
   const lname = sheet.getRange('B2').getValue().toString()
   const message = sheet.getRange('E2').getValue().toString()
   var announcement ={
-    text: message + " " + fname + " " + lname + "!"
+    text: message + " " + fname + " " + lname + "!",
+    scheduledTime: "2024-3-18T14:41:00Z", 
+    state: "DRAFT"
   };
   Classroom.Courses.Announcements.create(announcement, courseId);
   Logger.log(announcement);
