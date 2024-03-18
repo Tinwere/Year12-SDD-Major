@@ -1,11 +1,14 @@
 function postAnnouncement() {
-  //post an assignment
+  //post an announcement
   const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const sheet = ss.getSheetByName('assignment')
-  const courseId = sheet.getRange('B1').getValue();
+  const sheet = ss.getSheetByName('Birthdays')
+  const courseId = sheet.getRange('D2').getValue();
+  const fname = sheet.getRange('A2').getValue().toString()
+  const lname = sheet.getRange('B2').getValue().toString()
+  const message = sheet.getRange('E2').getValue().toString()
   var announcement ={
-    text: "Happy Birthday"+"\n" + "XXX" //sheet.getRange('B3').getValue().toString(),
+    text: message + " " + fname + " " + lname + "!"
   };
-  Classroom.Courses.Announcements.create(announcement, courseId)
+  Classroom.Courses.Announcements.create(announcement, courseId);
   Logger.log(announcement);
 }
