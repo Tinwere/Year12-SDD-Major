@@ -1,7 +1,7 @@
 const ss = SpreadsheetApp.getActiveSpreadsheet();
 const main = ss.getSheetByName('Year 12 SDD Major Test Spreadsheet')
 const sheet = ss.getSheetByName('Information')
-const courseId = sheet.getRange('A3').getValue();
+const courseId = sheet.getRange('A2').getValue();
 var birthday = []; //where the values in the rows will be stored
 
 //Gets the spreadsheet and the specific courseID

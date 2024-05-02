@@ -1,8 +1,8 @@
 function onMenu() {
   var ui = SpreadsheetApp.getUi();
   ui.createMenu('Birthdays')
-    .addItem('Schedule Birthday', 'postAnnouncement')
     .addItem('Get Course ID', 'getCourseID')
+    .addItem('Schedule Birthday', 'postAnnouncement')
     .addToUi();
 }
 
