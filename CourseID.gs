@@ -6,10 +6,10 @@ courseStates: 'ACTIVE'
 
 const response = Classroom.Courses.list(optionalArguments) //list method to get the courses. Ordered by time, most recent first
 const courses = response.courses //access the courses
-for (let i = 0; i < courses.length; i++) {
-  let courseName = courses[i].name // class name
+for (let i = 0; i < courses.length; i++) { //This line is looping through all the classroom the user has and records all of them
+  let courseName = courses[i].name // class name, redunant line
   let courseId = courses[i].id; // class id
-  sheet.appendRow([courseId]); //Adds the courseID to the "Information" spreadsheet to be used for scheduling
+  sheet.appendRow([courseId, courseName]); //Adds the courseID to the "Information" spreadsheet to be used for scheduling
 }
 }
 
