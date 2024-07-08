@@ -4,17 +4,21 @@ const sheet = ss.getSheetByName('Information');
 const courseId = sheet.getRange('B2').getValue();
 var birthday = [];
 const birthDate = main.getRange("C2").getValue();
-const year = "2025";
-  //where the values in the rows will be stored
+const today = new Date();
+var year = today.getFullYear(); 
+var newYear = year.toString();
+
 
 //Gets the spreadsheet and the specific courseID
 
+//where the values in the rows will be stored
+
+
 function postAnnouncement() {
- 
+ Logger.log(newYear)
+ //creates date format
   let [d, m] = birthDate.split(/[\/]/); //Takes the date string and isolates the day and month, storing it in the array
   newDate = year + "-" + m + "-" + d + "T" + "00:00:00Z"; //Builds the newDate variable in the Zulu format
-  Logger.log(birthDate)
-  Logger.log(newDate);
 
 //loops through the birthday array and stores them in an array
   var data = main.getDataRange().getValues();
@@ -23,6 +27,7 @@ function postAnnouncement() {
     var lname = row[1]; 
     
     birthday.push([fname, lname]);   
+    Logger.log(birthday)
      })
 
 const message = sheet.getRange('E1').getValue().toString() //Gets the desired message
@@ -34,6 +39,12 @@ const message = sheet.getRange('E1').getValue().toString() //Gets the desired me
   Classroom.Courses.Announcements.create(announcement, courseId); //Classroom api that handles posting
   }
 
+function loopThroughSheet(){
+  var data = main.getDataRange().getValues();
+   data.forEach(function (row) {
+   Logger.log(row);
+ });
+}
 
 
 
@@ -51,7 +62,10 @@ const message = sheet.getRange('E1').getValue().toString() //Gets the desired me
     //  if (birthday[i][2] === currentTime){
        // var newTime = currentTime
       
-      
+     
+
+
+
      // }
 
  // };
