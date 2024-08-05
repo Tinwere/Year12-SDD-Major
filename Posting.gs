@@ -1,8 +1,8 @@
 const ss = SpreadsheetApp.getActiveSpreadsheet();
 const main = ss.getSheetByName('Year 12 SDD Major Test Spreadsheet');
-const sheet = ss.getSheetByName('Information');
-const courseId = sheet.getRange('B2').getValue();
-const message = sheet.getRange('E1').getValue().toString() //Gets the desired message
+const sheet = ss.getSheetByName('Course ID');
+const courseId = sheet.getRange('F1').getValue();
+const message = sheet.getRange('H1').getValue().toString() //Gets the desired message
 var birthday = [];
 const today = new Date();
 var year = today.getFullYear(); 
@@ -17,20 +17,20 @@ function postAnnouncement() {
 
   data.forEach(function (row){
 
-    var fname = row[0]; 
-    var lname = row[1]; 
+    var lname = row[0]; 
+    var fname = row[1]; 
     var bdate = row[2];
 
     let [d, m] = bdate.split(/[\/]/); //Takes the date string and isolates the day and month, storing it in the array
     newDate = year + "-" + m + "-" + d + "T" + "00:00:00Z"; //Builds the newDate variable in the Zulu format 
        
-    birthday.push([fname, lname, newDate]); 
+    birthday.push([lname, fname, newDate]); 
   })
 
   for (var i = 1, l = birthday.length; i < l; i++){ //For each birthday line to each 
    
    var announcement ={ //announcement object that is needed for classroom to understand what is needed to be posted
-    text: message + ' ' + birthday[i][0] + ' ' + birthday[i][1] + '!', //This originally was going to be used to loop through the sheet for 
+    text: message + ' ' + birthday[i][1] + ' ' + birthday[i][0] + '!', //This originally was going to be used to loop through the sheet for 
     scheduledTime: birthday[i][2],  //the right birthday, however, has been repurposed to be used for scheduling
     state: "DRAFT" 
    }; 
