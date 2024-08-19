@@ -10,8 +10,11 @@ function onMenu() {
 //Creates the button on Spreadsheets that allows the House Captain to get the necessary courseID and schedule the birthday announcement.
 
 function loadOnlineHelp(){
-var page = HtmlService.createHtmlOutputFromFile('onlineHelp');
+var page = HtmlService.createHtmlOutputFromFile('onlineHelp')
+.setWidth(800)
+.setHeight(700)
 SpreadsheetApp.getUi()
   .showModalDialog(page, 'Frequently Asked Questions');
+ 
 
 }
