@@ -5,7 +5,7 @@ const courseId = sheet.getRange('F1').getValue();
 const message = sheet.getRange('H1').getValue().toString() //Gets the desired message
 var birthday = [];
 const today = new Date();
-var year = today.getFullYear(); 
+var year = today.getFullYear() + 1; 
 
 //Gets the spreadsheet and the specific courseID
 //where the values in the rows will be stored
@@ -33,10 +33,15 @@ function postAnnouncement() {
     text: message + ' ' + birthday[i][1] + ' ' + birthday[i][0] + '!', //This originally was going to be used to loop through the sheet for 
     scheduledTime: birthday[i][2],  //the right birthday, however, has been repurposed to be used for scheduling
     state: "DRAFT" 
+
    }; 
-  Classroom.Courses.Announcements.create(announcement, courseId); //Classroom api that handles posting
+  Classroom.Courses.Announcements.create(announcement, courseId);
+    //if(i = birthday.length){
+     // break;
+    //}
+         //Classroom api that handles posting
   }
-}
+};
 
 
 
