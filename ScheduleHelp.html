@@ -1,9 +1,56 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <base target="_top">
-  </head>
-  <body>
-    <p> hello world </p>
-  </body>
+<html lang="en">
+<head>
+    <title>Frequently Asked Questions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .welcome {
+          text-align: center;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        .faq-item h2 {
+            margin: 0;
+            color: #007bff;
+        }
+        .faq-item p {
+            margin: 0;
+            padding: 0;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Birthday Scheduler Issues </h1>
+         <div class="faq-item">
+            <h2>1. Why in some of the cells does it say "#REF" instead of the names and/or dates?</h2>
+            <p> This error message in the cell comes up as the formula is not reading the correct data. Ensure that the information from the TASS list was correctly copied into the spreadsheet in the format, "lastname, firstname" and "DD/MM/YYYY". Also make sure that the words are in the font "Ariel" as this is the default font used in Google Spreadsheets.</p>
+        </div>
+         <div class="faq-item">
+            <h2>2. I have put the Course ID number in the "Desired Classroom Course ID:" cell and have gone to "Schedule Birthday", however, why has nothing appeared to be scheduled on the classroom?</h2>
+            <p> Ensure that the Course ID number matches with the classroom name that you wish to post in. It may have scheduled in the wrong classroom or might not have been the correct Course ID number if it was not copied into the cell properly.</p>
+        </div>
+    </div>
+</body>
 </html>
+
