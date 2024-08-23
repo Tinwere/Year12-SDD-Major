@@ -33,8 +33,10 @@ function postAnnouncement() {
 //I am unable to test with a leap year but have created a case for it
     if (d == "01" && m == "01"){
       var newDate = year-1 + "-" + "12" + "-" + "31" + "T" + "21:00:00Z";
-    } else if (d == "29" && m == "2"){
+    } else if (d == "29" && m == "02" && leapYear == year){
       var newDate = leapYear + "-" + "2" + "-" + "28" + "T" + "21:00:00Z";
+    } else if (d == "29" && m == "02"){
+      var newDate = year + "-" + "2" + "-" + "27" + "T" + "21:00:00Z";
     } else if (d == "01" && m == "02") {
       var newDate = year + "-" + "1" + "-" + "31" + "T" + "21:00:00Z";
     } else if (d == "01" && m == "03") {
