@@ -31,6 +31,8 @@ function postAnnouncement() {
     
 //This section checks the specific case of a birthday being at the start of the month
 //I am unable to test with a leap year but have created a case for it
+//Preferably this should be in a function that performs this validation but due to time constraints
+//I was unable to do so
     if (d == "01" && m == "01"){
       var newDate = year-1 + "-" + "12" + "-" + "31" + "T" + "21:00:00Z";
     } else if (d == "29" && m == "02" && leapYear == year){
