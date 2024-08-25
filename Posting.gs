@@ -22,12 +22,7 @@ var newD = parseInt(d) - 1
         
         switch (m) {
           case "01": return year-1 + "-" + "12" + "-" + "31" + "T" + "21:00:00Z";
-          case "02": 
-             if (leapYear == year){
-              return leapYear + "-" + "2" + "-" + "28" + "T" + "21:00:00Z";
-            } else {
-              return year + "-" + "1" + "-" + "31" + "T" + "21:00:00Z";
-            }
+          case "02": return year + "-" + "1" + "-" + "31" + "T" + "21:00:00Z";
           case "03": return year + "-" + "2" + "-" + "28" + "T" + "21:00:00Z";
           case "04": return year + "-" + "3" + "-" + "31" + "T" + "21:00:00Z";
           case "05": return year + "-" + "4" + "-" + "30" + "T" + "21:00:00Z";
@@ -38,10 +33,25 @@ var newD = parseInt(d) - 1
           case "10": return year + "-" + "9" + "-" + "30" + "T" + "21:00:00Z";
           case "11": return year + "-" + "10" + "-" + "31" + "T" + "21:00:00Z";
           case "12": return year + "-" + "11" + "-" + "30" + "T" + "21:00:00Z";
-
         } 
     } 
-      return year + "-" + m + "-" + newD + "T" + "21:00:00Z";  //Builds the newDate variable in the Zulu format 
+
+    if (m == "02") {
+
+      switch (d) {
+        case "29": 
+          if (leapYear == year) {
+           return leapYear + "-" + "2" + "-" + "28" + "T" + "21:00:00Z"; 
+          } else {
+           return year + "-" + "2" + "-" + "27" + "T" + "21:00:00Z";
+          }
+      }
+      
+    }
+
+    
+    
+    return year + "-" + m + "-" + newD + "T" + "21:00:00Z";  //Builds the newDate variable in the Zulu format 
     } 
        
 function birthdayData() {
@@ -84,7 +94,6 @@ function generateAnnouncement(birthdayData){
 
   });
 }
-
 
 
 function postAnnouncement() {
