@@ -1,3 +1,5 @@
+//Creates the button on Spreadsheets that allows the House Captain or Head of House to get the necessary courseID and schedule the birthday announcement.
+
 function onMenu() {
   var ui = SpreadsheetApp.getUi();
   ui.alert("Welcome to the Birthday Scheduler - Peter Mawere's Year 12 Software Major! ");
@@ -7,6 +9,6 @@ function onMenu() {
     .addToUi();
 }
 
-//Creates the button on Spreadsheets that allows the House Captain to get the necessary courseID and schedule the birthday announcement.
+
 
 
