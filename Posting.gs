@@ -26,7 +26,7 @@ var newD = parseInt(d) - 1
              if (leapYear == year){
               return leapYear + "-" + "2" + "-" + "28" + "T" + "21:00:00Z";
             } else {
-              return year + "-" + "2" + "-" + "27" + "T" + "21:00:00Z";
+              return year + "-" + "1" + "-" + "31" + "T" + "21:00:00Z";
             }
           case "03": return year + "-" + "2" + "-" + "28" + "T" + "21:00:00Z";
           case "04": return year + "-" + "3" + "-" + "31" + "T" + "21:00:00Z";
