@@ -9,7 +9,7 @@ const courses = response.courses //access the courses
 for (let i = 0; i < courses.length; i++) { //This line is looping through all the classroom the user has and records all of them
   let courseName = courses[i].name // class name, redunant line
   let courseId = courses[i].id; // class id
-  sheet.appendRow([courseName, courseId]); //Adds the courseID to the "Information" spreadsheet to be used for scheduling
+  informationSheet.appendRow([courseName, courseId]); //Adds the courseID to the "Information" spreadsheet to be used for scheduling
 }
 }
 
