@@ -29,6 +29,11 @@ var newD = parseInt(d) - 1
         switch (m) {
           case "01": return year-1 + "-" + "12" + "-" + "31" + "T" + "21:00:00Z";
           case "02": return year + "-" + "1" + "-" + "31" + "T" + "21:00:00Z";
+          case "03": if (leapYear == year) { // Case for March 1st
+            return leapYear + "-" + "2" + "-" + "29" + "T" + "21:00:00Z"; 
+          } else {
+            return year + "-" + "2" + "-" + "28" + "T" + "21:00:00Z";
+          }
           case "04": return year + "-" + "3" + "-" + "31" + "T" + "21:00:00Z";
           case "05": return year + "-" + "4" + "-" + "30" + "T" + "21:00:00Z";
           case "06": return year + "-" + "5" + "-" + "31" + "T" + "21:00:00Z";
@@ -54,14 +59,6 @@ var newD = parseInt(d) - 1
           }
       }
     }
-
-// Case for March 1st
-    if (m == "03" && d == "01" && leapYear == year){
-        return leapYear + "-" + "2" + "-" + "29" + "T" + "21:00:00Z"; 
-      } else { 
-          return year + "-" + "2" + "-" + "28" + "T" + "21:00:00Z";
-      }
-  
 
    //Builds the newDate variable in the Zulu format for every other day 
 
